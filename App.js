@@ -1,20 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import PaginaUm from './screens/PaginaUm';
+import PaginaDois from './screens/PaginaDois';
+import PaginaTres from './screens/PaginaTres';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen
+          name="PaginaUm"
+          component={PaginaUm}
+          options={{
+            headerLeft: null,
+            headerStyle: {
+              backgroundColor: '#26201B',
+            },
+            headerTitleStyle: {
+              color: 'white', },
+          }}
+        />
+        <Stack.Screen
+          name="PaginaDois"
+          component={PaginaDois}
+          options={{
+            headerLeft: null,
+            headerStyle: {
+              backgroundColor: '#26201B',
+            },
+            headerTitleStyle: {
+              color: 'white', },
+          }}
+        />
+        <Stack.Screen
+          name="PaginaTres"
+          component={PaginaTres}
+          options={{
+            headerLeft: null,
+            headerStyle: {
+              backgroundColor: '#26201B',
+            },
+            headerTitleStyle: {
+              color: 'white', },
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
